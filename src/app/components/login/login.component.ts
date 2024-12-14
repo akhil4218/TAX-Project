@@ -12,26 +12,33 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
-  username: string = '';
+
+  email: string = ''; // Changed to email instead of username
   password: string = '';
   errorMessage: string = '';
-  onLogin(event: any) {
-    console.log('Form submitted: ');
-    console.log(`${this.username} ${this.password}`);
 
-    const payload = { username: this.username, password: this.password };
+  onLogin(event: any) {
+    event.preventDefault(); // Prevent form from reloading the page
+    console.log('Form submitted:');
+    console.log(`${this.email} ${this.password}`);
+
+    const payload = { email: this.email, password: this.password }; // Updated payload to use email
     console.log('Payload: ', payload);
+
     this.http.post('http://127.0.0.1:5000/login', payload).subscribe(
       (response: any) => {
         if (response.message === 'Login successful') {
-          localStorage.setItem('username', this.username);
-          this.router.navigate(['/']);
+          // Store the username (from response) and token if needed
+          localStorage.setItem('username', response.username);
+          localStorage.setItem('access_token', response.access_token); // Store token
+          this.router.navigate(['/']); // Redirect to home after successful login
         } else {
           this.errorMessage = 'Invalid credentials!';
         }
       },
       (error) => {
-        this.errorMessage = 'Something went wrong!';
+        // Handle error cases such as network issues or invalid login
+        this.errorMessage = 'Something went wrong! Please try again.';
       }
     );
   }

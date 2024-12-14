@@ -1,6 +1,7 @@
 <div class="form-container">
   <h2>Signup</h2>
   <form (submit)="onSignup()">
+    <!-- Username Input -->
     <input
       type="text"
       placeholder="Username"
@@ -8,6 +9,17 @@
       name="username"
       required
     />
+
+    <!-- Email Input -->
+    <input
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+      name="email"
+      required
+    />
+
+    <!-- Password Input -->
     <input
       type="password"
       placeholder="Password"
@@ -15,7 +27,10 @@
       name="password"
       required
     />
+
     <button type="submit" class="btn btn-primary">Signup</button>
   </form>
+
+  <!-- Display messages -->
   <p *ngIf="message" class="message">{{ message }}</p>
 </div>

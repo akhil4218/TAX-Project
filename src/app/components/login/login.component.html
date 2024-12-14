@@ -1,13 +1,16 @@
 <div class="form-container">
   <h2>Login</h2>
   <form (submit)="onLogin($event)">
+    <!-- Email Input -->
     <input
-      type="text"
-      placeholder="Username"
-      name="username"
+      type="email"
+      placeholder="Email"
+      name="email"
       required
-      [(ngModel)]="username"
+      [(ngModel)]="email"
     />
+
+    <!-- Password Input -->
     <input
       type="password"
       placeholder="Password"
@@ -15,6 +18,10 @@
       [(ngModel)]="password"
       required
     />
+
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
+
+  <!-- Error Message -->
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 </div>

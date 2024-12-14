@@ -12,21 +12,33 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SignupComponent {
   username = '';
+  email = ''; // Added email property
   password = '';
   message = '';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   onSignup() {
-    const payload = { username: this.username, password: this.password };
+    const payload = {
+      username: this.username,
+      email: this.email, // Include email in payload
+      password: this.password,
+      role: "user",
+    };
 
     this.http.post('http://127.0.0.1:5000/signup', payload).subscribe(
-      (response) => {
+      (response: any) => {
         this.message = 'Signup successful!';
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login']); // Redirect to login page
       },
-      (error) => {
-        this.message = 'Signup failed!';
+      (error: any) => {
+        // Improved error handling
+        if (error.status === 400) {
+          const errorMessage = error.error.error || 'Signup failed!';
+          this.message = errorMessage;
+        } else {
+          this.message = 'An unexpected error occurred. Please try again later.';
+        }
       }
     );
   }
