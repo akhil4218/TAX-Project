@@ -1,11 +1,13 @@
-# TaxFiling
+Steps to start
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+```
+npm i -g @angular/cli
+```
 
-## Development server
+```
+npm install concurrently --save-dev --legacy-peer-deps
+```
 
-To start a local development server, run:
-
-```bash
-ng serve
+```
+npm start
 ```
