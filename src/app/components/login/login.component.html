@@ -1,0 +1,20 @@
+<div class="form-container">
+  <h2>Login</h2>
+  <form (submit)="onLogin($event)">
+    <input
+      type="text"
+      placeholder="Username"
+      name="username"
+      required
+      [(ngModel)]="username"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

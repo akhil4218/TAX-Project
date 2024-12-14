@@ -1,0 +1,94 @@
+/* General Styling */
+.welcome-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+/* Tabs Styling */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Tab Content Styling */
+.tab-content {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+.tab-content p {
+  margin: 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #3498db;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: #2ecc71;
+}
+
+.btn-secondary:hover {
+  background-color: #27ae60;
+}

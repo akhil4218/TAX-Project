@@ -1,0 +1,28 @@
+<div class="welcome-container">
+  <h1>Welcome to TaxEasy!</h1>
+  <p>
+    Simplify your tax filing process with TaxEasy. Create an account, log in,
+    and securely upload your income-related documents. We'll handle the rest,
+    ensuring accurate verification and submission.
+  </p>
+
+  <!-- Tabs Section -->
+  <div class="tabs">
+    <button class="tab-btn" (click)="showContent('tab-1')">First Tab</button>
+    <button class="tab-btn" (click)="showContent('tab-2')">Second Tab</button>
+    <a routerLink="/signup" class="btn btn-primary">Sign Up</a>
+    <a routerLink="/login" class="btn btn-primary">Log In</a>
+    <a routerLink="/tickets" class="btn btn-primary">tickets</a>
+  </div>
+
+  <!-- Tab Contents -->
+  <div *ngIf="activeTab === 'tab-1'" class="tab-content">
+    <p>This is the content of the First Tab. Learn more about TaxEasy and how we simplify tax filing for you!</p>
+  </div>
+  <div *ngIf="activeTab === 'tab-2'" class="tab-content">
+    <p>This is the content of the Second Tab. Explore advanced features and benefits of using TaxEasy!</p>
+  </div>
+
+  <div class="action-buttons">
+  </div>
+</div>
